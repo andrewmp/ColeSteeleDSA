@@ -18,7 +18,8 @@ function mostDigits (arr) {
     var highest = 0;
     var i = 1;
     while (i < arr.length) {
-        if (arr[i] > arr[highest]) { highest=i; i++;}
+        if (arr[i] > arr[highest]) { highest=i; }
+        i++;
     }
 
     return digitCount(arr[highest]);
@@ -31,14 +32,14 @@ function mostDigits (arr) {
 function radixSort(arr) {
     // Figure out how many digits the largest number has
 
-    var mostDigit = mostDigits(arr);
-
+    let mostDigit = mostDigits(arr);
     
-    for (var k=0; k< mostDigit; k++) {
-        for (var j=0; j< mostDigit; j++) {
-            var bucket= new[10];
-            var x = getDigit(arr[j], k); 
-            bucket[x].append(arr[j]);
+    let bucket = [];
+    for (let k=0; k< mostDigit; k++) {
+        for (let j=0; j< arr.length; j++) {
+            let x = getDigit(arr[j], k);
+            bucket[x].push(arr[j])
+            
 
         /*
         For each iteration of the loop:
@@ -46,10 +47,11 @@ function radixSort(arr) {
             - Place each number in the corresponding bucket based on its kth digit
         */
         }
+        console.log(bucket);
     }
 }
 
-console.log(radixSort([5,3,2,44,3234,4655,3,3244]));
+console.log(radixSort([5,30,2,440,3234,4655,3,3244]));
 /* 
 
 F

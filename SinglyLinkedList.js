@@ -58,17 +58,28 @@ class SinglyLinkedList {
             console.log(newNode);
             newNode = newNode.next;
         }
+        console.log('----------');
+    }
+    shift() {
+        if (this.head === null) { return undefined;}
+        var newNode = this.head;
+        this.head = this.head.next;
+        this.count--;
+
+        return newNode;
     }
 }
 
 var list  = new SinglyLinkedList;
-list.push("HI");
-list.push("There");
-list.push("Mo");
-
-console.log("Pop:" + list.pop());
-console.log("Pop 2:" + list.pop());
-console.log("Pop 3:" + list.pop());
-console.log("Pop 3:" + list.pop());
+list.push("One");
+list.push("Two");
+list.push("Three");
+list.push("Four");
+//list.print();
+list.shift()
+list.print();
+list.shift()
+list.print();
+list.shift()
 list.print();
 console.log(list);

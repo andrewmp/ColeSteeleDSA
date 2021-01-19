@@ -65,8 +65,23 @@ class SinglyLinkedList {
         var newNode = this.head;
         this.head = this.head.next;
         this.count--;
+        if (this.count == 0) { this.tail = null; }
 
         return newNode;
+    }
+    unshift(val) {
+        // accept a value
+        // create a new node using the value passed to the function
+        var newNode = new Node(val);
+        
+        // if there is no head property on the list, set the head and tail to be the newly created code
+        if (this.count == 0) { this.head = newNode.head; this.tail = newNode.tail;}
+
+        // otherwise set the newly created node's next property to be the current head property on the list
+        newNode.next = this.head;
+        this.head = newNode;
+        this.count++;
+        return SinglyLinkedList;
     }
 }
 
@@ -75,11 +90,12 @@ list.push("One");
 list.push("Two");
 list.push("Three");
 list.push("Four");
-//list.print();
-list.shift()
+list.unshift("Zero");
 list.print();
-list.shift()
-list.print();
-list.shift()
-list.print();
+// list.shift()
+// list.print();
+// list.shift()
+// list.print();
+// list.shift()
+// list.print();
 console.log(list);
